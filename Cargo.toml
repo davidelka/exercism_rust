@@ -1,0 +1,38 @@
+[package]
+name = "exrcisem"
+version = "0.1.0"
+edition = "2024"
+
+[[bin]]
+name = "lists"
+path = "compare_list/src/main.rs"
+
+[[bin]]
+name = "flowers"
+path = "flower_garden/src/main.rs"
+
+[[bin]]
+name = "lunn"
+path = "lunn/src/main.rs"
+
+[[bin]]
+name = "armstrong"
+path = "armstrong/src/main.rs"
+
+[[bin]]
+name = "bottles"
+path = "bottles/src/main.rs"
+
+[[bin]]
+name = "pow_sum"
+path = "pow_sum/src/main.rs"
+
+[[bin]]
+name = "prime"
+path = "prime/src/main.rs"
+
+[[bin]]
+name = "factors"
+path = "factors/src/main.rs"
+
+[dependencies]
