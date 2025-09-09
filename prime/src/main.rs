@@ -2,11 +2,15 @@ pub fn nth(n: u32) -> u32 {
     if n == 0 {
         return 2;
     }
-    (3..).step_by(2).filter(|x| is_prime(*x)).nth(n as usize - 1).unwrap()
+    (3..)
+        .step_by(2)
+        .filter(|x| is_prime(*x))
+        .nth(n as usize - 1)
+        .unwrap()
 }
 
 fn is_prime(n: u32) -> bool {
-    !(2..n.isqrt()+1).any(|d| n % d == 0)
+    !(2..n.isqrt() + 1).any(|d| n % d == 0)
 }
 #[test]
 fn first_prime() {
