@@ -1,34 +1,31 @@
 pub fn factors(n: u64) -> Vec<u64> {
     let mut v = vec![];
     let mut x = n;
-    let mut prime = 1;
+    let mut divider = 1;
 
-    while x >= prime {
-        prime = next_prime(prime);
-        while x % prime == 0 {
-            v.push(prime);
-            x /= prime;
+    while x >= divider {
+        divider = next_divider(x, divider);
+        while x % divider == 0 {
+            v.push(divider);
+            x /= divider;
         }
     }
     v
 }
 
-fn next_prime(p0: u64) -> u64 {
-    if p0 == 1 {
+fn next_divider(x: u64, divider: u64) -> u64 {
+    if divider == 1 {
         return 2;
     }
-    if p0 == 2 {
+    if divider == 2 {
         return 3;
     }
-    (p0 + 2..)
+    (divider + 2..)
         .step_by(2)
-        .find(|x| is_prime(*x))
+        .find(|y| x % y == 0)
         .unwrap()
 }
 
-fn is_prime(n: u64) -> bool {
-    !(2..n.isqrt() + 1).any(|d| n % d == 0)
-}
 
 fn main() {
     println!("Hello, world!");
