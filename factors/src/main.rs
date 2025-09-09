@@ -114,3 +114,18 @@ fn factors_include_a_large_prime() {
     let expected = [11, 9_539, 894_119];
     assert_eq!(factors, expected);
 }
+
+
+pub fn build_proverb(list: &[&str]) -> String {
+    let mut proverb = "".to_string();
+    if list.is_empty() {
+        return proverb;
+    }
+    proverb = (0..list.len() - 1).map(|i| format!("For want of a {} the {} was lost.", list[i], list[i+1])).collect::<Vec<String>>().join("\n");
+    if list.len() > 1 {
+        proverb.push_str("\n");
+    }
+    proverb.push_str(format!("\nAnd all for the want of a {}.", list[0]).as_str());
+    proverb
+}
+
